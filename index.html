@@ -12,21 +12,22 @@
     <title>Hello, world!</title>
   </head>
   <body>
-    <div class="modal" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Modal title</h5>
-            <button type="button" class="btn-close btn-close-modal" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal-wrap">
+      <div class="modal-inner">
+        <p>로그인하세요</p>
+        <form action="login.php">
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Email" id="email">
+            <p id="emil-alert">이메일이 비어있어요</p>
           </div>
-          <div class="modal-body">
-            <p>Modal body text goes here.</p>
+          <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password">
+            <p id="psw-alert">비밀번호를 입력하세요</p>
+
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary btn-close-modal" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-        </div>
+          <button type="submit" class="btn btn-primary">전송</button>
+          <button class="btn btn-danger" id="close">닫기</button>
+        </form>
       </div>
     </div>
     <div class="nav-menu">
@@ -50,13 +51,47 @@
       $('.nav-sub-button').click(function(){
         $('.nav-sub').slideToggle();
       })
-      $('.login-btn').click(function(){
-        $('.modal').show();
-      })
       $('.btn-close-modal').click(function(){
-        $('.modal').hide();
+        $('.modal-wrap').hide();
       })
-      $
+      $('.login-btn').click(function(){
+        $('.modal-wrap').show();
+      })
+      $('#close').click(function(e){
+        $('.modal-wrap').hide();
+        e.preventDefault();
+      })
+      $('form').on('submit',function(e){
+        if($('input[type="email"]').val() == "") {
+          $('#emil-alert').show();
+          e.preventDefault();
+        }
+        if($('input[type="password"]').val() == "") {
+          $('#psw-alert').show();
+          e.preventDefault();
+        }
+        
+      })
+      $('input[type="email"]').on('input',function(){
+        if(!$(this).val() == ""){
+          $('#emil-alert').show();
+        }
+
+      })
+
+      function starGame(숫자){
+        if(숫자 % 9 == 0){
+          console.log('박수박수')
+        }
+        else if(숫자 % 3 == 0){
+          console.log("박수")
+        }
+
+        else{
+          console.log('통과')
+        }
+      }
+    
     </script>
   </body>
   </html>
