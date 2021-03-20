@@ -35,10 +35,65 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
      <button class="login-btn">LOGIN</button>
      <button class="left_menu_button_open">SHOW MENU</button>
+     <input type="text" id="email" class="email">
+     <label id="passwrodChk" for="password1">비번</label>
+     <input type="text" id="password1" class="password">
+     <h4>show case</h4>
+     <div style="overflow:hidden">
+       <div class="slide_box_container">
+         <div class="slide_box">
+           <img src="img/horse1.jpg" alt="">
+         </div>
+         <div class="slide_box">
+           <img src="img/horse2.jpg" alt="">
+         </div>
+         <div class="slide_box">
+           <img src="img/horse3.jpg" alt="">
+         </div>
+       </div>
+     </div>
+     <button class="button_1">1</button>
+     <button class="button_2">2</button>
+     <button class="button_3">3</button>
+     <button class="button_next">next</button>
+     <button class="button_prev">prev</button>
+  
      <script>
+       var 지금보이는사진 = 1
+       $('.button_next').click(function(){
+         if(지금보이는사진 == 3){
+           
+         }
+         $('.slide_box_container').css('transform','translateX(-' + 지금보이는사진 +'00vw)')
+         지금보이는사진 = 지금보이는사진 + 1
+       })
+
+       $('.button_2').click(function(){
+         $('.slide_box_container').addClass('slide');
+       })
+       $('.button_3').click(function(){
+         $('.slide_box_container').addClass('slide2');
+       })
+       
        $('.left_menu_button_open').click(function(){
          $('.left_menu').animate({left:0});
         })
+
+        var email = $('.email').val();
+        var password = $('.password').val()
+        console.log(password)
+        
+        $('#passwrodChk').click(function(){
+          if(/[A-Z]+/.test() == false){
+            alert('비밀번호 똑바로')
+          }
+          else{
+            alert('good')
+          }
+
+        })
+        
+        
        
             
       
@@ -50,7 +105,9 @@
       <li class="list-group-item">A fourth item</li>
       <li class="list-group-item">And a fifth one</li>
     </ul>
-    
+    <script>
+      /abc/.test('abcdefg')
+    </script>
     <script>
       
       $('.nav-sub-button').click(function(){

@@ -1,4 +1,4 @@
-body {padding-left:100px;}
+body {padding:0}
 .nav-menu {
     display:flex;
     justify-content: space-between;
@@ -60,4 +60,22 @@ a{
 .slide_down {
     transform:translateY(0px);
     opacity:1;
+}
+.slide_box_container {
+    width:300vw;
+    transition:transform 1s;
+}
+.slide_box_container.slide {
+    transform:translateX(-100vw);
+}
+.slide_box_container.slide2 {
+    transform:translateX(-200vw);
+}
+
+.slide_box {
+    float:left;
+    width:100vw;
+}
+.slide_box img {
+    width: 100%;;
 }
